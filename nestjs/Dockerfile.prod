@@ -1,0 +1,9 @@
+FROM node:24.7.0-alpine3.22
+
+WORKDIR /app
+
+COPY app/package*.json ./
+RUN npm i
+COPY app .
+
+CMD ["npm", "run", "start:prod"]

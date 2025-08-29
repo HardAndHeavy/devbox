@@ -1,0 +1,8 @@
+FROM python:3.13.7-trixie
+
+RUN pip install "fastapi[standard]==0.116.1"
+
+ENV PYTHONPATH="/site-packages"
+ENV PATH="/site-packages/bin:${PATH}"
+
+WORKDIR /app
