@@ -1,0 +1,5 @@
+FROM rust:1.89.0-trixie 
+
+RUN cargo install --locked watchexec-cli
+
+WORKDIR /app

@@ -12,4 +12,3 @@ test-prod:
 	docker run -it --rm \
 		-p 80:3000 \
 		nest:prod
-

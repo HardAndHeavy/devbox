@@ -1,0 +1,10 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+actix-web = "4.11.0"
+serde = { version = "1.0.219", features = ["derive"] }
+qrcode = "0.14.1"
+image = "0.25.6"

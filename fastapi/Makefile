@@ -13,4 +13,3 @@ test-prod:
 	docker run -it --rm \
 		-p 80:8000 \
 		fastapi:prod
-
