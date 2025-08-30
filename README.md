@@ -4,7 +4,7 @@ Tired of spending hours setting up a new web framework just to try it out? **Fra
 
 This repository is a curated collection of the best modern web frameworks, pre-packaged into Docker containers with hot-reloading enabled out of the box. It's the ultimate playground for developers, tech writers, and architects who want to explore, learn, and compare technologies without the setup pain.
 
-**Focus on what matters—your code—not the configuration.**
+**Focus on what matters — your code — not the configuration.**
 
 ### What's Inside?
 
