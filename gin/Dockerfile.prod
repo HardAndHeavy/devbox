@@ -17,4 +17,4 @@ FROM scratch
 
 COPY --from=builder /build/app /app
 
-ENTRYPOINT ["/app"]
+CMD ["/app"]
