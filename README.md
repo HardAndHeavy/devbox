@@ -10,7 +10,7 @@ This repository is a curated collection of the best modern web frameworks, pre-p
 
 **Docker-Powered**: Clean, reproducible, and isolated environments for every stack.
 **Blazing-Fast Workflow**: Write code in your favorite IDE on your local machine; the app inside the container updates automatically.
-**Polyglot Playground**: From Python's FastAPI to Rust's Axum, explore a diverse "zoo" of technologies.
+**Polyglot Playground**: From Python's FastAPI to Rust's Actix Web, explore a diverse "zoo" of technologies.
 **Side-by-Side Comparison**: The perfect tool to write your next comparison article or choose the right stack for your new project.
 
 ### Frameworks Included
@@ -18,9 +18,9 @@ This repository is a curated collection of the best modern web frameworks, pre-p
 - Python: [FastAPI](https://github.com/fastapi/fastapi)
 - TypeScript: [NestJS](https://github.com/nestjs/nest)
 - Rust: [Actix Web](https://github.com/actix/actix-web)
- 
-Coming soon:
 - Go: [Gin](https://github.com/gin-gonic/gin)
+
+Coming soon:
 - Kotlin: [Ktor](https://github.com/ktorio/ktor)
 - Elixir: [Phoenix](https://github.com/phoenixframework/phoenix)
 - Ruby: [Rails](https://github.com/rails/rails)

@@ -1,3 +1,5 @@
 FROM golang:1.25.0-trixie
 
+RUN go install github.com/air-verse/air@v1.62.0
+
 WORKDIR /app

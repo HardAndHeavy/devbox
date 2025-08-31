@@ -3,6 +3,7 @@ init:
 
 bash:
 	docker run -it --rm \
+		-v ./go-pkg:/go/pkg \
 		-v ./app:/app \
 		-p 80:8080 \
 		gin:dev bash

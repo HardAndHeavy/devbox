@@ -1,2 +1,8 @@
+prepare:
+	go mod init app
+
+install:
+	go mod tidy
+
 dev:
-	watchexec -w src -r cargo run
+	air
