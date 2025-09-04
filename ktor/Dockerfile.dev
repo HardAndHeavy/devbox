@@ -1,0 +1,20 @@
+FROM openjdk:23-ea-jdk-bookworm
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    procps \
+    curl \
+    file \
+    git
+RUN useradd -m -s /bin/bash linuxbrew && \
+    echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+USER linuxbrew
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ENV PATH=${PATH}:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin/
+RUN brew install ktor
+USER root
+
+RUN apt-get update && apt-get install -y \
+    entr
+
+WORKDIR /app

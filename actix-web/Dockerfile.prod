@@ -13,6 +13,7 @@ COPY app/src ./src
 RUN touch src/main.rs && cargo build --release
 
 FROM alpine:3.22
+
 RUN apk add --no-cache libgcc
 COPY --from=builder /build/target/release/app /app
 
