@@ -1,0 +1,14 @@
+FROM openjdk:24-ea-jdk-bookworm
+
+RUN apt-get update && apt-get install -y \
+    entr \
+    make
+
+ENV SPRING_BOOT_VERSION=3.5.5
+RUN wget https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-cli/${SPRING_BOOT_VERSION}/spring-boot-cli-${SPRING_BOOT_VERSION}-bin.tar.gz \
+    && mkdir -p /opt/spring-boot-cli \
+    && tar -xzf spring-boot-cli-${SPRING_BOOT_VERSION}-bin.tar.gz -C /opt/spring-boot-cli \
+    && rm spring-boot-cli-${SPRING_BOOT_VERSION}-bin.tar.gz \
+    && ln -s /opt/spring-boot-cli/spring-${SPRING_BOOT_VERSION}/bin/spring /usr/local/bin/spring
+
+WORKDIR /app

@@ -1,0 +1,12 @@
+FROM openjdk:24-ea-jdk-bookworm AS builder
+
+WORKDIR /build
+
+COPY app .
+RUN /build/gradlew buildFatJar
+
+FROM openjdk:24-ea-jdk-slim-bookworm
+
+COPY --from=builder /build/build/libs/*.jar /app.jar
+
+CMD ["java", "-jar", "/app.jar"]
