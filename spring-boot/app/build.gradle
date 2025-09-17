@@ -22,6 +22,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+  implementation 'com.google.zxing:core:3.5.3'
+  implementation 'com.google.zxing:javase:3.5.3'
 }
 
 tasks.named('test') {

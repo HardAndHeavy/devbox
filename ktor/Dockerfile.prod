@@ -2,8 +2,15 @@ FROM openjdk:23-ea-jdk-bookworm AS builder
 
 WORKDIR /build
 
-COPY app .
-RUN /build/gradlew buildFatJar
+COPY app/gradle ./gradle
+COPY app/gradlew .
+COPY app/gradle.properties .
+COPY app/build.gradle.kts .
+COPY app/settings.gradle.kts .
+RUN ./gradlew buildFatJar --no-daemon --console=plain --no-build-cache || \
+    ./gradlew dependencies --no-daemon --console=plain
+COPY app/src ./src
+RUN ./gradlew buildFatJar --no-daemon --console=plain
 
 FROM openjdk:23-ea-jdk-slim-bookworm
 
