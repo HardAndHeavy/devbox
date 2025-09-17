@@ -22,10 +22,10 @@ This repository is a curated collection of the best modern web frameworks, pre-p
 - TypeScript: [NestJS](https://github.com/nestjs/nest)
 - Java: [Spring Boot](https://github.com/spring-projects/spring-boot)
 - JavaScript: [Fastify](https://github.com/fastify/fastify)
+- Ruby: [Rails](https://github.com/rails/rails)
 
 Coming soon:
 - Elixir: [Phoenix](https://github.com/phoenixframework/phoenix)
-- Ruby: [Rails](https://github.com/rails/rails)
 
 ### TODO
 

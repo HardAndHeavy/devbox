@@ -1,8 +1,12 @@
-prepare:
+init-bundle:
 	bundle config set path 'bundle'
+
+prepare: init-bundle
 	rails new .
 	chmod a+rw -R .
 
-dev:
-	bundle config set path 'bundle'
+install: init-bundle
+	bundle install
+
+dev: install
 	bin/rails server -b 0.0.0.0 -p 3000
