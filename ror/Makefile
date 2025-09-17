@@ -1,0 +1,19 @@
+init:
+	docker build -t ror:dev -f ./Dockerfile.dev .
+
+bash:
+	docker run -it --rm \
+		-v ./app:/app \
+		-p 80:3000 \
+		ror:dev bash
+
+test-prod:
+	docker build \
+		--secret id=rails_master_key,src=app/config/master.key \
+		-t ror:prod \
+		-f ./Dockerfile.prod \
+		.
+	docker run -it --rm \
+		-e RAILS_MASTER_KEY=$$(cat app/config/master.key) \
+		-p 80:3000 \
+		ror:prod

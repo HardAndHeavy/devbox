@@ -1,0 +1,52 @@
+bundle
+# See https://docs.docker.com/engine/reference/builder/#dockerignore-file for more about ignoring files.
+
+# Ignore git directory.
+app/.git/
+app/.gitignore
+
+# Ignore bundler config.
+app/.bundle
+
+# Ignore all environment files.
+app/.env*
+
+# Ignore all default key files.
+app/config/master.key
+app/config/credentials/*.key
+
+# Ignore all logfiles and tempfiles.
+app/log/*
+app/tmp/*
+!app/log/.keep
+!app/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+app/tmp/pids/*
+!app/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+app/storage/*
+!app/storage/.keep
+app/tmp/storage/*
+!app/tmp/storage/.keep
+
+# Ignore assets.
+app/node_modules/
+app/app/assets/builds/*
+!app/app/assets/builds/.keep
+app/public/assets
+
+# Ignore CI service files.
+app/.github
+
+# Ignore Kamal files.
+app/config/deploy*.yml
+app/.kamal
+
+# Ignore development files
+app/.devcontainer
+
+# Ignore Docker-related files
+app/.dockerignore
+app/Dockerfile*

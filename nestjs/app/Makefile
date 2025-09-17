@@ -1,5 +1,6 @@
 prepare:
 	nest new .
+	chmod a+rw -R .
 
 install:
 	npm i
