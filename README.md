@@ -21,9 +21,9 @@ This repository is a curated collection of the best modern web frameworks, pre-p
 - Rust: [Actix Web](https://github.com/actix/actix-web)
 - TypeScript: [NestJS](https://github.com/nestjs/nest)
 - Java: [Spring Boot](https://github.com/spring-projects/spring-boot)
+- JavaScript: [Fastify](https://github.com/fastify/fastify)
 
 Coming soon:
-- JavaScript: [Fastify](https://github.com/fastify/fastify)
 - Elixir: [Phoenix](https://github.com/phoenixframework/phoenix)
 - Ruby: [Rails](https://github.com/rails/rails)
 
