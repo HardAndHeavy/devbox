@@ -1,0 +1,3 @@
+site-packages
+__pycache__
+db.sqlite3

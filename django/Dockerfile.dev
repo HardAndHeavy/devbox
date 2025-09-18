@@ -1,0 +1,8 @@
+FROM python:3.13.7-trixie
+
+RUN pip install Django==5.2.6
+
+ENV PYTHONPATH="/site-packages"
+ENV PATH="/site-packages/bin:${PATH}"
+
+WORKDIR /app

@@ -3,7 +3,7 @@ FROM python:3.13.7-alpine3.22
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-RUN pip install "fastapi[standard]==0.116.1"
+RUN pip install Django==5.2.6
 
 WORKDIR /app
 
@@ -11,4 +11,4 @@ COPY app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY app .
 
-CMD ["fastapi", "run", "main.py", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app.wsgi:application"]

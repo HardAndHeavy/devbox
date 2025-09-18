@@ -17,7 +17,7 @@ This repository is a curated collection of the best modern web frameworks, pre-p
 
 - Go: [Gin](https://github.com/gin-gonic/gin)
 - Kotlin: [Ktor](https://github.com/ktorio/ktor)
-- Python: [FastAPI](https://github.com/fastapi/fastapi)
+- Python: [FastAPI](https://github.com/fastapi/fastapi), [Django](https://github.com/django/django)
 - Rust: [Actix Web](https://github.com/actix/actix-web)
 - TypeScript: [NestJS](https://github.com/nestjs/nest)
 - Java: [Spring Boot](https://github.com/spring-projects/spring-boot)
