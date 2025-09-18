@@ -6,7 +6,7 @@ plugins {
     id("io.ktor.plugin") version "3.2.3"
 }
 
-group = "com.example.com"
+group = "app"
 version = "0.0.1"
 
 application {

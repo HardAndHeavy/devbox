@@ -1,4 +1,4 @@
-package com.example.app;
+package app;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -34,17 +34,14 @@ public class AppController {
             @RequestParam(value = "qrVersion", required = false) Integer qrVersion,
             @RequestParam(value = "maskPattern", required = false) Integer maskPattern) {
 
-        // Установка значений по умолчанию
         int finalWidth = (width != null && width > 0) ? width : 300;
         int finalHeight = (height != null && height > 0) ? height : 300;
         int finalMargin = (margin != null && margin >= 0) ? margin : 1;
 
-        // Проверка параметров
         if (finalWidth <= 0 || finalHeight <= 0) {
             return ResponseEntity.badRequest().body("Width and height must be positive integers.");
         }
 
-        // Настройка уровня коррекции ошибок
         ErrorCorrectionLevel errorCorrection;
         switch (errorCorrectionStr.toUpperCase()) {
             case "L":
@@ -63,7 +60,6 @@ public class AppController {
                 errorCorrection = ErrorCorrectionLevel.H;
         }
 
-        // Создание hints для QR-кода
         Map<EncodeHintType, Object> hints = new HashMap<>();
         hints.put(EncodeHintType.ERROR_CORRECTION, errorCorrection);
         hints.put(EncodeHintType.CHARACTER_SET, charset);
