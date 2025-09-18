@@ -11,3 +11,8 @@ dev: install
 lint:
 	npm run format
 	npm run lint
+
+test: lint
+	npm run test
+
+.PHONY: test

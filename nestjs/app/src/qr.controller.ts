@@ -17,7 +17,7 @@ export class QrController {
       res.setHeader('Content-Type', 'image/png');
       res.setHeader('Content-Disposition', 'inline; filename="qrcode.png"');
       res.send(qr);
-    } catch (error) {
+    } catch {
       res.status(500).send('Error generating QR code');
     }
   }
