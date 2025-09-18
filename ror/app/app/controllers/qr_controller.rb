@@ -1,19 +1,25 @@
+
 class QrController < ApplicationController
   def generate
     data = params[:data] || 'Default data'
     
     qr = RQRCode::QRCode.new(data)
     
-    svg = qr.as_svg(
-      offset: 0,
-      color: '000',
-      shape_rendering: 'crispEdges',
-      module_size: 6,
-      standalone: true
+    png = qr.as_png(
+      bit_depth: 1,
+      border_modules: 0,
+      color_mode: ChunkyPNG::COLOR_GRAYSCALE,
+      color: 'black',
+      file: nil,
+      fill: 'white',
+      module_px_size: 6,
+      size: 120,
+      uppercase: true
     )
     
     respond_to do |format|
-      format.svg { render xml: svg }
+      format.png { send_data png.to_s, type: 'image/png', disposition: 'inline' }
     end
   end
 end
+
