@@ -1,10 +1,9 @@
 class QrController < ApplicationController
   def generate
-    data = params[:data] || 'Default data'  # Получаем data из query-параметра, например ?data=123abc
+    data = params[:data] || 'Default data'
     
-    qr = RQRCode::QRCode.new(data)  # Генерируем QR-код
+    qr = RQRCode::QRCode.new(data)
     
-    # Рендерим как SVG (или PNG, если добавите chunky_png)
     svg = qr.as_svg(
       offset: 0,
       color: '000',
@@ -14,7 +13,7 @@ class QrController < ApplicationController
     )
     
     respond_to do |format|
-      format.svg { render xml: svg }  # Возвращаем SVG
+      format.svg { render xml: svg }
     end
   end
 end
