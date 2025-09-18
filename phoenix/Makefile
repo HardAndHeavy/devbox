@@ -1,11 +1,17 @@
-init:
+prepare:
 	docker build -t phoenix:dev -f ./Dockerfile.dev .
 
-bash:
+bash: prepare
 	docker run -it --rm \
 		-v ./app:/app \
 		-p 80:4000 \
 		phoenix:dev bash
+
+dev: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		-p 80:4000 \
+		phoenix:dev make dev
 
 test-prod:
 	docker build -t phoenix:prod -f ./Dockerfile.prod .

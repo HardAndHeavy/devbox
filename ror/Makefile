@@ -1,11 +1,17 @@
-init:
+prepare:
 	docker build -t ror:dev -f ./Dockerfile.dev .
 
-bash:
+bash: prepare
 	docker run -it --rm \
 		-v ./app:/app \
 		-p 80:3000 \
 		ror:dev bash
+
+dev: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		-p 80:3000 \
+		ror:dev make dev
 
 test-prod:
 	docker build \

@@ -1,12 +1,19 @@
-init:
+prepare:
 	docker build -t django:dev -f ./Dockerfile.dev .
 
-bash:
+bash: prepare
 	docker run -it --rm \
 		-v ./site-packages:/site-packages \
 		-v ./app:/app \
 		-p 80:8000 \
 		django:dev bash
+
+dev: prepare
+	docker run -it --rm \
+		-v ./site-packages:/site-packages \
+		-v ./app:/app \
+		-p 80:8000 \
+		django:dev make dev
 
 test-prod:
 	docker build -t django:prod -f ./Dockerfile.prod .

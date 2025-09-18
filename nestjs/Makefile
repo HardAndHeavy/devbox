@@ -1,11 +1,17 @@
-init:
+prepare:
 	docker build -t nest:dev -f ./Dockerfile.dev .
 
-bash:
+bash: prepare
 	docker run -it --rm \
 		-v ./app:/app \
 		-p 80:3000 \
 		nest:dev bash
+
+dev: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		-p 80:3000 \
+		nest:dev make dev
 
 test-prod:
 	docker build -t nest:prod -f ./Dockerfile.prod .

@@ -1,12 +1,19 @@
-init:
+prepare:
 	docker build -t ktor:dev -f ./Dockerfile.dev .
 
-bash:
+bash: prepare
 	docker run -it --rm \
 		-v ./.gradle:/root/.gradle \
 		-v ./app:/app \
 		-p 80:8080 \
 		ktor:dev bash
+
+dev: prepare
+	docker run -it --rm \
+		-v ./.gradle:/root/.gradle \
+		-v ./app:/app \
+		-p 80:8080 \
+		ktor:dev make dev
 
 test-prod:
 	docker build -t ktor:prod -f ./Dockerfile.prod .
