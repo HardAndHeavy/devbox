@@ -3,3 +3,10 @@ install:
 
 dev: install
 	fastapi dev main.py --host 0.0.0.0 --port 8000
+
+lint:
+	ruff format . && ruff check --fix .
+
+test: lint
+
+.PHONY: test

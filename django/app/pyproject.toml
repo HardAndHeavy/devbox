@@ -1,0 +1,70 @@
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "migrations",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+    "DJ",
+    "FA",
+    "ISC",
+    "ICN",
+    "PIE",
+    "T20",
+    "PT",
+    "Q",
+    "RET",
+    "SIM",
+    "TID",
+    "TCH",
+    "ARG",
+    "PTH",
+    "ERA",
+    "PD",
+    "PGH",
+    "PL",
+    "TRY",
+    "FLY",
+    "PERF",
+    "RUF",
+]
+ignore = [
+    "E501",
+    "PLR0913",
+    "DJ001",
+]
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403"]
+"tests/*" = ["S101", "ARG", "PLR2004"]
+"settings.py" = ["E501"]
+"*/migrations/*" = ["E501", "ERA001"]
+"*/models.py" = ["DJ008"]
+"*/admin.py" = ["ERA001"]
+"*/tests.py" = ["DJ008"]
+
+[tool.ruff.lint.isort]
+known-third-party = ["django", "pydantic", "sqlalchemy"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

@@ -7,3 +7,10 @@ install:
 
 dev: install
 	python manage.py runserver 0.0.0.0:8000
+
+lint:
+	ruff format . && ruff check --fix .
+
+test: lint
+
+.PHONY: test
