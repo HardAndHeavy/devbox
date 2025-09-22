@@ -299,6 +299,7 @@ dependencies = [
  "log",
  "qrcode",
  "serde",
+ "serde_json",
 ]
 
 [[package]]
