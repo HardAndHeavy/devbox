@@ -15,7 +15,13 @@ dev: prepare
 		-p 80:8000 \
 		fastapi:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./site-packages:/site-packages \
+		-v ./app:/app \
+		fastapi:dev make test
+
+test-prod: test
 	docker build -t fastapi:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-p 80:8000 \

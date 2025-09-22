@@ -15,7 +15,13 @@ dev: prepare
 		-p 80:8000 \
 		django:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./site-packages:/site-packages \
+		-v ./app:/app \
+		django:dev make test
+
+test-prod: test
 	docker build -t django:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-p 80:8000 \

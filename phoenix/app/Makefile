@@ -8,3 +8,10 @@ install:
 
 dev: install
 	mix phx.server
+
+lint:
+	echo lint
+
+test: lint
+
+.PHONY: test

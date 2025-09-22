@@ -13,7 +13,12 @@ dev: prepare
 		-p 80:3000 \
 		fastify:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		fastify:dev make test
+
+test-prod: test
 	docker build -t fastify:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-p 80:3000 \

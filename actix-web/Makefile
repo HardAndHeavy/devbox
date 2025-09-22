@@ -13,7 +13,12 @@ dev: prepare
 		-p 80:8080 \
 		actix-web:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		actix-web:dev make test
+
+test-prod: test
 	docker build -t actix-web:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-p 80:8080 \

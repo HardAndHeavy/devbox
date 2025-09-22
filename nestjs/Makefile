@@ -13,7 +13,12 @@ dev: prepare
 		-p 80:3000 \
 		nest:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		nest:dev make test
+
+test-prod: test
 	docker build -t nest:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-p 80:3000 \

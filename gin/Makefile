@@ -15,7 +15,13 @@ dev: prepare
 		-p 80:8080 \
 		gin:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./go-pkg:/go/pkg \
+		-v ./app:/app \
+		gin:dev make test
+
+test-prod: test
 	docker build -t gin:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-p 80:8080 \

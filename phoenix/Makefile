@@ -13,7 +13,12 @@ dev: prepare
 		-p 80:4000 \
 		phoenix:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		phoenix:dev make test
+
+test-prod: test
 	docker build -t phoenix:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-e DATABASE_URL=ecto://user:pass@localhost/db \

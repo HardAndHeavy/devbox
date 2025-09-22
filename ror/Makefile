@@ -13,7 +13,12 @@ dev: prepare
 		-p 80:3000 \
 		ror:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./app:/app \
+		ror:dev make test
+
+test-prod: test
 	docker build \
 		--secret id=rails_master_key,src=app/config/test-master.key \
 		-t ror:prod \
