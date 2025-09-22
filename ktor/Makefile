@@ -15,7 +15,13 @@ dev: prepare
 		-p 80:8080 \
 		ktor:dev make dev
 
-test-prod:
+test: prepare
+	docker run -it --rm \
+		-v ./.gradle:/root/.gradle \
+		-v ./app:/app \
+		ktor:dev make test
+
+test-prod: test
 	docker build -t ktor:prod -f ./Dockerfile.prod .
 	docker run -it --rm \
 		-p 80:8080 \
