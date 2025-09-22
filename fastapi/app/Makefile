@@ -8,5 +8,6 @@ lint:
 	ruff format . && ruff check --fix .
 
 test: lint
+	pytest
 
 .PHONY: test

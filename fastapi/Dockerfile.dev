@@ -1,7 +1,7 @@
 FROM python:3.13.7-trixie
 
 RUN pip install "fastapi[standard]==0.116.1"
-RUN pip install ruff==0.13.1
+RUN pip install ruff==0.13.1 pytest==8.4.2
 
 ENV PYTHONPATH="/site-packages"
 ENV PATH="/site-packages/bin:${PATH}"

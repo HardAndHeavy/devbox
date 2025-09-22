@@ -1,7 +1,7 @@
 FROM python:3.13.7-trixie
 
 RUN pip install Django==5.2.6
-RUN pip install ruff==0.13.1
+RUN pip install ruff==0.13.1 pytest==8.4.2 pytest-django==4.11.1
 
 ENV PYTHONPATH="/site-packages"
 ENV PATH="/site-packages/bin:${PATH}"
