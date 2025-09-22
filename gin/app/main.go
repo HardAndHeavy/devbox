@@ -1,3 +1,4 @@
+// Package main implements a web server with QR code generation functionality.
 package main
 
 import (
@@ -5,39 +6,47 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/gin-gonic/gin"
-	"github.com/skip2/go-qrcode"
+	"github.com/gin-gonic/gin" //nolint:depguard
+	"github.com/skip2/go-qrcode" //nolint:depguard
 )
 
+// main is the entry point of the application.
 func main() {
-	r := gin.Default()
+	router := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "This is the Gin framework in DevBox.")
+	router.GET("/", func(context *gin.Context) {
+		context.String(http.StatusOK, "This is the Gin framework in DevBox.")
 	})
 
-	r.GET("/qr", func(c *gin.Context) {
-		data := c.Query("data")
+	router.GET("/qr", func(context *gin.Context) {
+		data := context.Query("data")
 		if data == "" {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "data parameter is required"})
+			context.JSON(http.StatusBadRequest, gin.H{"error": "data parameter is required"})
+
 			return
 		}
 
-		sizeStr := c.DefaultQuery("size", "200")
+		sizeStr := context.DefaultQuery("size", "200")
+
 		size, err := strconv.Atoi(sizeStr)
 		if err != nil || size < 1 || size > 1000 {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid size parameter"})
+			context.JSON(http.StatusBadRequest, gin.H{"error": "invalid size parameter"})
+
 			return
 		}
 
 		png, err := qrcode.Encode(data, qrcode.Medium, size)
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprintf("QR generation error: %v", err)})
+			context.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprintf("QR generation error: %v", err)})
+
 			return
 		}
 
-		c.Data(http.StatusOK, "image/png", png)
+		context.Data(http.StatusOK, "image/png", png)
 	})
 
-	r.Run()
+	err := router.Run()
+	if err != nil {
+		panic(fmt.Sprintf("Failed to start server: %v", err))
+	}
 }
