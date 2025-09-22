@@ -6,3 +6,8 @@ dev: install
 
 lint:
 	npx eslint . --fix
+
+test: lint
+	npm test
+
+.PHONY: test
