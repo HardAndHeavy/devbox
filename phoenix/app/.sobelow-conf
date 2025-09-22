@@ -1,0 +1,7 @@
+[
+  verbose: false,
+  private: false,
+  skip: false,
+  ignore: ["Config.HTTPS"],
+  ignore_files: []
+]

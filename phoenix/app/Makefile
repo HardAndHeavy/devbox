@@ -10,7 +10,10 @@ dev: install
 	mix phx.server
 
 lint:
-	echo lint
+	mix format
+	mix credo --strict
+	mix dialyzer
+	mix sobelow --config
 
 test: lint
 
