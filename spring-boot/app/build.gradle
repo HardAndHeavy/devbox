@@ -23,11 +23,17 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'com.google.zxing:core:3.5.3'
     implementation 'com.google.zxing:javase:3.5.3'
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.9.6'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.4'
+    testImplementation 'org.mockito:mockito-core:5.20.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.20.0'
+    testImplementation 'org.assertj:assertj-core:3.27.6'
+    testImplementation 'io.rest-assured:rest-assured:5.5.6'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 checkstyle {
@@ -74,6 +80,10 @@ tasks.named('check') {
 
 tasks.named('test') {
     useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
 }
 
 check.dependsOn checkstyleMain, checkstyleTest, spotbugsMain

@@ -7,6 +7,7 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -46,7 +47,7 @@ public class AppController {
    */
   @GetMapping("/qr")
   public ResponseEntity<?> generateQrCode(
-      @RequestParam(value = "data", defaultValue = "") String data,
+      @RequestParam(value = "data", defaultValue = " ") String data,
       @RequestParam(value = "width", required = false) Integer width,
       @RequestParam(value = "height", required = false) Integer height,
       @RequestParam(value = "errorCorrection", defaultValue = "H") String errorCorrectionStr,
@@ -55,15 +56,28 @@ public class AppController {
       @RequestParam(value = "qrVersion", required = false) Integer qrVersion,
       @RequestParam(value = "maskPattern", required = false) Integer maskPattern) {
 
-    int finalWidth = (width != null && width > 0) ? width : 300;
-    int finalHeight = (height != null && height > 0) ? height : 300;
-
-    if (finalWidth <= 0 || finalHeight <= 0) {
-      return ResponseEntity.badRequest().body("Width and height must be positive integers.");
+    // Проверяем негативные значения до присвоения значений по умолчанию
+    if (width != null && width <= 0) {
+      return ResponseEntity.badRequest()
+          .contentType(MediaType.TEXT_PLAIN)
+          .body("Width and height must be positive integers.");
     }
 
+    if (height != null && height <= 0) {
+      return ResponseEntity.badRequest()
+          .contentType(MediaType.TEXT_PLAIN)
+          .body("Width and height must be positive integers.");
+    }
+
+    // Теперь присваиваем значения по умолчанию
+    int finalWidth = (width != null && width > 50) ? width : 300;
+    int finalHeight = (height != null && height > 50) ? height : 300;
+
+    String finalData = (data == null || data.trim().isEmpty()) ? " " : data;
+
     ErrorCorrectionLevel errorCorrection;
-    switch (errorCorrectionStr.toUpperCase(Locale.ROOT)) {
+    String upperCaseErrorCorrection = errorCorrectionStr.toUpperCase(Locale.ROOT);
+    switch (upperCaseErrorCorrection) {
       case "L":
         errorCorrection = ErrorCorrectionLevel.L;
         break;
@@ -95,21 +109,44 @@ public class AppController {
       hints.put(EncodeHintType.QR_MASK_PATTERN, maskPattern);
     }
 
+    ByteArrayOutputStream outputStream = null;
     try {
       QRCodeWriter qrWriter = new QRCodeWriter();
-      var bitMatrix = qrWriter.encode(data, BarcodeFormat.QR_CODE, finalWidth, finalHeight, hints);
+      var bitMatrix =
+          qrWriter.encode(finalData, BarcodeFormat.QR_CODE, finalWidth, finalHeight, hints);
 
-      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      outputStream = new ByteArrayOutputStream();
       MatrixToImageWriter.writeToStream(bitMatrix, "PNG", outputStream);
       byte[] qrBytes = outputStream.toByteArray();
 
       return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(qrBytes);
 
     } catch (WriterException e) {
-      return ResponseEntity.badRequest().body("Error generating QR code: " + e.getMessage());
+      if (e.getMessage() != null && e.getMessage().contains("Data too big")) {
+        return ResponseEntity.badRequest()
+            .contentType(MediaType.TEXT_PLAIN)
+            .body("Data too large for QR code: " + e.getMessage());
+      }
+      return ResponseEntity.badRequest()
+          .contentType(MediaType.TEXT_PLAIN)
+          .body("Error generating QR code: " + e.getMessage());
+    } catch (IOException e) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .contentType(MediaType.TEXT_PLAIN)
+          .body("IO error: " + e.getMessage());
     } catch (Exception e) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .contentType(MediaType.TEXT_PLAIN)
           .body("Unexpected error: " + e.getMessage());
+    } finally {
+      if (outputStream != null) {
+        try {
+          outputStream.close();
+        } catch (IOException e) {
+          // Log the error but don't throw it
+          System.err.println("Error closing output stream: " + e.getMessage());
+        }
+      }
     }
   }
 }

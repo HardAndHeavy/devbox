@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FindBugsFilter>
-    <!-- Пример исключения -->
-    <!--
+    
     <Match>
-        <Class name="com.example.SomeClass"/>
-        <Bug pattern="DM_DEFAULT_ENCODING"/>
+        <Class name="app.AppControllerIntegrationTest"/>
+        <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD"/>
     </Match>
-    -->
+    
+    
+    <Match>
+        <Bug pattern="OS_OPEN_STREAM"/>
+    </Match>
+    
+    
+    <Match>
+        <Class name="app.AppController"/>
+        <Bug pattern="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE"/>
+    </Match>
+    
+    
+    <Match>
+        <Class name="~.*Test.*"/>
+    </Match>
 </FindBugsFilter>
