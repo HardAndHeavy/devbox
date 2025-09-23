@@ -11,5 +11,6 @@ lint:
 	./gradlew detekt --auto-correct
 
 test: lint
+	./gradlew test
 
 .PHONY: test

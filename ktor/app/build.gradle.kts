@@ -1,5 +1,6 @@
 val kotlin_version: String by project
 val logback_version: String by project
+val kotest_version = "6.0.3"
 
 plugins {
     kotlin("jvm") version "2.1.10"
@@ -29,8 +30,11 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("io.ktor:ktor-server-core")
     implementation("io.ktor:ktor-server-config-yaml")
-    testImplementation("io.ktor:ktor-server-test-host")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
     implementation("com.google.zxing:core:3.5.3")
     implementation("com.google.zxing:javase:3.5.3")
+    testImplementation("io.ktor:ktor-server-test-host")
+    testImplementation("io.ktor:ktor-client-content-negotiation")
+    testImplementation("io.kotest:kotest-runner-junit5:$kotest_version")
+    testImplementation("io.kotest:kotest-assertions-core:$kotest_version")
+    testImplementation("io.kotest:kotest-property:$kotest_version")
 }

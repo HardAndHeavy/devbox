@@ -1,9 +1,7 @@
 package app
 
 import io.ktor.server.application.Application
-import io.ktor.server.application.ApplicationCall
 import io.ktor.server.application.call
-import io.ktor.server.response.respond
 import io.ktor.server.response.respondBytes
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.Routing
@@ -19,7 +17,7 @@ import com.google.zxing.qrcode.QRCodeWriter
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
 import com.google.zxing.client.j2se.MatrixToImageWriter
 import java.io.ByteArrayOutputStream
-import java.util.HashMap  // Добавлено для HashMap<Object>
+import java.util.HashMap
 
 private const val DEFAULT_WIDTH = 300
 private const val DEFAULT_HEIGHT = 300
@@ -49,7 +47,7 @@ private fun Routing.configureQrRoute() {
         val qrParameters = parseQrParameters(call.parameters)
         
         if (qrParameters.width <= 0 || qrParameters.height <= 0) {
-            call.respond(HttpStatusCode.BadRequest, "Width and height must be positive integers.")
+            call.respondText("Width and height must be positive integers.", status = HttpStatusCode.BadRequest)
             return@get
         }
 
@@ -57,9 +55,9 @@ private fun Routing.configureQrRoute() {
             val qrBytes = generateQrCode(data, qrParameters)
             call.respondBytes(qrBytes, ContentType.Image.PNG)
         } catch (e: WriterException) {
-            call.respond(HttpStatusCode.BadRequest, "Error generating QR code: ${e.message}")
+            call.respondText("Error generating QR code: ${e.message}", status = HttpStatusCode.BadRequest)
         } catch (e: IllegalArgumentException) {
-            call.respond(HttpStatusCode.BadRequest, "Invalid parameters: ${e.message}")
+            call.respondText("Invalid parameters: ${e.message}", status = HttpStatusCode.BadRequest)
         }
     }
 }
@@ -96,7 +94,7 @@ private fun parseQrParameters(parameters: Parameters): QrParameters {
 }
 
 private fun parseErrorCorrectionLevel(errorCorrectionStr: String): ErrorCorrectionLevel {
-    return when (errorCorrectionStr.uppercase()) {  // Изменено обратно на uppercase() для новых версий Kotlin
+    return when (errorCorrectionStr.uppercase()) {
         "L" -> ErrorCorrectionLevel.L
         "M" -> ErrorCorrectionLevel.M
         "Q" -> ErrorCorrectionLevel.Q
@@ -106,7 +104,7 @@ private fun parseErrorCorrectionLevel(errorCorrectionStr: String): ErrorCorrecti
 }
 
 private fun generateQrCode(data: String, parameters: QrParameters): ByteArray {
-    val hints = HashMap<EncodeHintType, Any>()  // Изменено на HashMap<EncodeHintType, Any> для совместимости с ZXing
+    val hints = HashMap<EncodeHintType, Any>()
     hints[EncodeHintType.ERROR_CORRECTION] = parameters.errorCorrection
     hints[EncodeHintType.CHARACTER_SET] = parameters.charset
     hints[EncodeHintType.MARGIN] = parameters.margin

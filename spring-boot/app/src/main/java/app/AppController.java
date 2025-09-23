@@ -63,7 +63,6 @@ public class AppController {
     }
 
     ErrorCorrectionLevel errorCorrection;
-    // Исправлено: добавлен Locale.ROOT для корректной работы с международными символами
     switch (errorCorrectionStr.toUpperCase(Locale.ROOT)) {
       case "L":
         errorCorrection = ErrorCorrectionLevel.L;
@@ -85,7 +84,6 @@ public class AppController {
     hints.put(EncodeHintType.ERROR_CORRECTION, errorCorrection);
     hints.put(EncodeHintType.CHARACTER_SET, charset);
 
-    // Объявляем finalMargin ближе к месту использования
     int finalMargin = (margin != null && margin >= 0) ? margin : 1;
     hints.put(EncodeHintType.MARGIN, finalMargin);
 
