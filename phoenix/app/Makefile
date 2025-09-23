@@ -1,5 +1,5 @@
 prepare:
-	mix phx.new .
+	mix phx.new . --no-ecto
 	chmod a+rw -R .
 
 install:
@@ -16,5 +16,6 @@ lint:
 	mix sobelow --config
 
 test: lint
+	mix test
 
 .PHONY: test

@@ -11,8 +11,7 @@ defmodule App.MixProject do
       aliases: aliases(),
       deps: deps(),
       compilers: [:phoenix_live_view] ++ Mix.compilers(),
-      listeners: [Phoenix.CodeReloader],
-      releases: releases()
+      listeners: [Phoenix.CodeReloader]
     ]
   end
 
@@ -42,9 +41,6 @@ defmodule App.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.8.1"},
-      {:phoenix_ecto, "~> 4.5"},
-      {:ecto_sql, "~> 3.13"},
-      {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 1.1.0"},
@@ -77,10 +73,7 @@ defmodule App.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["compile", "tailwind app", "esbuild app"],
       "assets.deploy": [
@@ -89,16 +82,6 @@ defmodule App.MixProject do
         "phx.digest"
       ],
       precommit: ["compile --warning-as-errors", "deps.unlock --unused", "format", "test"]
-    ]
-  end
-
-  defp releases do
-    [
-      app: [
-        include_erts: true,
-        include_executables_for: [:unix],
-        applications: [runtime_tools: :permanent]
-      ]
     ]
   end
 end

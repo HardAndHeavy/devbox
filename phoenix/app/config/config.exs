@@ -8,7 +8,6 @@
 import Config
 
 config :app,
-  ecto_repos: [App.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
@@ -20,7 +19,7 @@ config :app, AppWeb.Endpoint,
     layout: false
   ],
   pubsub_server: App.PubSub,
-  live_view: [signing_salt: "sQ0EH4Gg"]
+  live_view: [signing_salt: "2dvkqsEP"]
 
 # Configures the mailer
 #
