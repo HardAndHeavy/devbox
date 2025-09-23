@@ -27,5 +27,4 @@ This repository is a curated collection of the best modern web frameworks, pre-p
 
 ### TODO
 
-- add lint
 - add tests

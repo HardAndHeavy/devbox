@@ -4,3 +4,10 @@ prepare:
 
 dev:
 	find src -type f | entr -r ./gradlew bootRun
+
+lint:
+	./gradlew check
+
+test: lint
+
+.PHONY: test
