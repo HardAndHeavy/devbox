@@ -61,7 +61,8 @@ defmodule App.MixProject do
       {:eqrcode, "~> 0.2.1"},
       {:credo, "~> 1.7"},
       {:dialyxir, "~> 1.4"},
-      {:sobelow, "~> 0.14.0"}
+      {:sobelow, "~> 0.14.0"},
+      {:stream_data, "~> 1.2", only: [:test]}
     ]
   end
 
