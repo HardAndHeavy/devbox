@@ -6,7 +6,7 @@ defmodule AppWeb.QrController do
     png_data = EQRCode.png(qr_code)
 
     conn
-    |> put_resp_content_type("image/png")
+    |> put_resp_content_type("image/png", nil)
     |> send_resp(200, png_data)
   end
 
