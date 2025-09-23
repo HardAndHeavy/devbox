@@ -8,7 +8,7 @@ install:
 dev: install
 	npm run start:dev
 
-lint:
+lint: install
 	npm run format
 	npm run lint
 

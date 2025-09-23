@@ -4,7 +4,7 @@ install:
 dev: install
 	fastapi dev main.py --host 0.0.0.0 --port 8000
 
-lint:
+lint: install
 	ruff format . && ruff check --fix .
 
 test: lint

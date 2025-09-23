@@ -9,7 +9,7 @@ install:
 dev: install
 	mix phx.server
 
-lint:
+lint: install
 	mix format
 	mix credo --strict
 	mix dialyzer

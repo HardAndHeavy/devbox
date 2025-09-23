@@ -11,7 +11,7 @@ install: init-bundle
 dev: install
 	bin/rails server -b 0.0.0.0 -p 3000
 
-lint: init-bundle
+lint: install
 	bundle exec rubocop -a
 
 test: lint
