@@ -1,4 +1,3 @@
-
 class QrController < ApplicationController
   def generate
     data = params[:data] || "Default data"

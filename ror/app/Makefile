@@ -15,5 +15,6 @@ lint: install
 	bundle exec rubocop -a
 
 test: lint
+	bin/rails test
 
 .PHONY: test
