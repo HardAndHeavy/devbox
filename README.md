@@ -24,7 +24,3 @@ This repository is a curated collection of the best modern web frameworks, pre-p
 - JavaScript: [Fastify](https://github.com/fastify/fastify)
 - Ruby: [Rails](https://github.com/rails/rails)
 - Elixir: [Phoenix](https://github.com/phoenixframework/phoenix)
-
-### TODO
-
-- add tests
