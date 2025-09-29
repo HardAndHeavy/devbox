@@ -1,0 +1,34 @@
+FROM dunglas/frankenphp:1.9.1-php8.4.13-alpine
+
+RUN apk add --no-cache \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    freetype-dev \
+    && docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd
+
+RUN install-php-extensions \
+    pdo_mysql \
+    opcache \
+    redis \
+    zip
+
+WORKDIR /app
+
+COPY --from=composer:2.8.12 /usr/bin/composer /usr/bin/composer
+COPY app .
+RUN composer install --no-dev --optimize-autoloader
+
+RUN apk add --no-cache nodejs npm
+RUN npm ci && npm run build && rm -rf node_modules
+
+RUN php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache \
+    && php artisan optimize
+
+RUN chown -R www-data:www-data storage bootstrap/cache
+
+CMD ["frankenphp", "run", "--config", "/etc/frankenphp/Caddyfile"]

@@ -1,0 +1,41 @@
+FROM php:8.4.13-trixie
+
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    zip \
+    curl \
+    libzip-dev \
+    zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+RUN docker-php-ext-install -j "$(nproc)" \
+    zip \
+    pcntl
+
+COPY --from=composer:2.8.12 /usr/bin/composer /usr/bin/composer
+
+RUN adduser --disabled-password --gecos '' --uid 1000 laravel
+USER laravel
+RUN composer global require laravel/installer
+USER root
+
+RUN mkdir -p /usr/local/bin && \
+    chown $USER:$USER /usr/local/bin && \
+    ln -sf /home/laravel/.composer/vendor/bin/laravel /usr/local/bin/laravel && \
+    chmod +x /usr/local/bin/laravel && \
+    /usr/local/bin/laravel --version && \
+    rm -rf /home/laravel/.composer/cache
+
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    && rm -rf /var/lib/apt/lists/* \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd
+
+WORKDIR /app

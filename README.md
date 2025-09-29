@@ -26,6 +26,7 @@ This repository is a curated collection of modern web frameworks, pre-packaged i
 - **JavaScript**: [Fastify](https://github.com/fastify/fastify)
 - **Ruby**: [RoR](https://github.com/rails/rails)
 - **Elixir**: [Phoenix](https://github.com/phoenixframework/phoenix)
+- **PHP**: [Laravel](https://github.com/laravel/laravel)
 
 ### Getting Started
 
