@@ -4,6 +4,7 @@ prepare:
 
 install:
 	npm install && npm run build
+	composer install
 
 dev: install
 	composer run dev
