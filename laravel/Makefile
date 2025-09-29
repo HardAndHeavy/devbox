@@ -24,6 +24,7 @@ test-prod: test
 		-f ./Dockerfile.prod \
 		.
 	docker run -it --rm \
+		-e SERVER_NAME=http://localhost \
 		-p 80:80 \
 		-p 443:443 \
 		laravel:prod
