@@ -5,7 +5,7 @@ dev: install
 	npm run nodemon -- --exec npm run start
 
 lint: install
-	npx eslint . --fix
+	npm run lint
 
 test: lint
 	npm test
