@@ -27,6 +27,7 @@ This repository is a curated collection of modern web frameworks, pre-packaged i
 - **Ruby**: [RoR](https://github.com/rails/rails)
 - **Elixir**: [Phoenix](https://github.com/phoenixframework/phoenix)
 - **PHP**: [Laravel](https://github.com/laravel/laravel)
+- **C#**: [.NET Core](https://github.com/dotnet/aspnetcore)
 
 ### Getting Started
 

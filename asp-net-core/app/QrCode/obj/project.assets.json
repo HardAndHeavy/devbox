@@ -1,0 +1,290 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "Microsoft.Win32.SystemEvents/9.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Microsoft.Win32.SystemEvents.dll": {}
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.Win32.SystemEvents.dll": {}
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "QRCoder/1.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/QRCoder.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/QRCoder.dll": {}
+        }
+      },
+      "SixLabors.ImageSharp/3.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {}
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
+      "StyleCop.Analyzers/1.1.118": {
+        "type": "package"
+      },
+      "System.Drawing.Common/9.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "9.0.9"
+        },
+        "compile": {
+          "lib/net9.0/System.Drawing.Common.dll": {
+            "related": ".pdb"
+          },
+          "lib/net9.0/System.Private.Windows.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net9.0/System.Drawing.Common.dll": {
+            "related": ".pdb"
+          },
+          "lib/net9.0/System.Private.Windows.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.Win32.SystemEvents/9.0.9": {
+      "sha512": "eJU9vZbN710Cc25p/jPecPEL+gFcnynAvznNRnEvMU7i7u0PSjFXlGO4SOlaIUvkykTlS2N++M9B/coxYT7aPw==",
+      "type": "package",
+      "path": "microsoft.win32.systemevents/9.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Win32.SystemEvents.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Win32.SystemEvents.targets",
+        "lib/net462/Microsoft.Win32.SystemEvents.dll",
+        "lib/net8.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/net9.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "microsoft.win32.systemevents.9.0.9.nupkg.sha512",
+        "microsoft.win32.systemevents.nuspec",
+        "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.xml",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "QRCoder/1.6.0": {
+      "sha512": "XmPA81eo+oRxBuyVdswsSkTGTE1d3thfF11Z1PdD7oB56A6HU4G4AAOdySmGRMb/cljwlFTMWUtosGEnwpS6GA==",
+      "type": "package",
+      "path": "qrcoder/1.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/QRCoder.dll",
+        "lib/net40/QRCoder.dll",
+        "lib/net5.0-windows7.0/QRCoder.dll",
+        "lib/net5.0/QRCoder.dll",
+        "lib/net6.0-windows7.0/QRCoder.dll",
+        "lib/net6.0/QRCoder.dll",
+        "lib/netstandard1.3/QRCoder.dll",
+        "lib/netstandard2.0/QRCoder.dll",
+        "nuget-icon.png",
+        "nuget-readme.md",
+        "qrcoder.1.6.0.nupkg.sha512",
+        "qrcoder.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp/3.1.11": {
+      "sha512": "JfPLyigLthuE50yi6tMt7Amrenr/fA31t2CvJyhy/kQmfulIBAqo5T/YFUSRHtuYPXRSaUHygFeh6Qd933EoSw==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/3.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "lib/net6.0/SixLabors.ImageSharp.dll",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.3.1.11.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "sha512": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "type": "package",
+      "path": "stylecop.analyzers/1.1.118",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "THIRD-PARTY-NOTICES.txt",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
+        "analyzers/dotnet/cs/de-DE/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/en-GB/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/es-MX/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/fr-FR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pl-PL/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ru-RU/StyleCop.Analyzers.resources.dll",
+        "stylecop.analyzers.1.1.118.nupkg.sha512",
+        "stylecop.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "System.Drawing.Common/9.0.9": {
+      "sha512": "BS17VFUf4RS9G/JoA6br+79jAjyTj0UaomgXCVNJJn9EWIvmHkn0ZCqAynxwloO00yPIvWgXBF9SBjcM06bl1w==",
+      "type": "package",
+      "path": "system.drawing.common/9.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Drawing.Common.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net462/System.Drawing.Common.dll",
+        "lib/net462/System.Drawing.Common.pdb",
+        "lib/net8.0/System.Drawing.Common.dll",
+        "lib/net8.0/System.Drawing.Common.pdb",
+        "lib/net8.0/System.Private.Windows.Core.dll",
+        "lib/net9.0/System.Drawing.Common.dll",
+        "lib/net9.0/System.Drawing.Common.pdb",
+        "lib/net9.0/System.Private.Windows.Core.dll",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/netstandard2.0/System.Drawing.Common.pdb",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "system.drawing.common.9.0.9.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "QRCoder >= 1.6.0",
+      "SixLabors.ImageSharp >= 3.1.11",
+      "StyleCop.Analyzers >= 1.1.118",
+      "System.Drawing.Common >= 9.0.9"
+    ]
+  },
+  "packageFolders": {
+    "/root/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/app/QrCode/QrCode.csproj",
+      "projectName": "QrCode",
+      "projectPath": "/app/QrCode/QrCode.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/QrCode/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/root/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "dependencies": {
+          "QRCoder": {
+            "target": "Package",
+            "version": "[1.6.0, )"
+          },
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[3.1.11, )"
+          },
+          "StyleCop.Analyzers": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.1.118, )"
+          },
+          "System.Drawing.Common": {
+            "target": "Package",
+            "version": "[9.0.9, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

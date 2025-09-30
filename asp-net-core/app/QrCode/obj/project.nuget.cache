@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "dJ6AfAoEj3s=",
+  "success": true,
+  "projectFilePath": "/app/QrCode/QrCode.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/microsoft.win32.systemevents/9.0.9/microsoft.win32.systemevents.9.0.9.nupkg.sha512",
+    "/root/.nuget/packages/qrcoder/1.6.0/qrcoder.1.6.0.nupkg.sha512",
+    "/root/.nuget/packages/sixlabors.imagesharp/3.1.11/sixlabors.imagesharp.3.1.11.nupkg.sha512",
+    "/root/.nuget/packages/stylecop.analyzers/1.1.118/stylecop.analyzers.1.1.118.nupkg.sha512",
+    "/root/.nuget/packages/system.drawing.common/9.0.9/system.drawing.common.9.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}

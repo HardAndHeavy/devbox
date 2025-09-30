@@ -1,0 +1,112 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "QrCode/1.0.0": {
+        "dependencies": {
+          "QRCoder": "1.6.0",
+          "SixLabors.ImageSharp": "3.1.11",
+          "StyleCop.Analyzers": "1.1.118",
+          "System.Drawing.Common": "9.0.9"
+        },
+        "runtime": {
+          "QrCode.dll": {}
+        }
+      },
+      "Microsoft.Win32.SystemEvents/9.0.9": {
+        "runtime": {
+          "lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.41916"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.41916"
+          }
+        }
+      },
+      "QRCoder/1.6.0": {
+        "runtime": {
+          "lib/net6.0/QRCoder.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/3.1.11": {
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.1.11.0"
+          }
+        }
+      },
+      "StyleCop.Analyzers/1.1.118": {},
+      "System.Drawing.Common/9.0.9": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "9.0.9"
+        },
+        "runtime": {
+          "lib/net9.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.41903"
+          },
+          "lib/net9.0/System.Private.Windows.Core.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.925.41903"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "QrCode/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Win32.SystemEvents/9.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eJU9vZbN710Cc25p/jPecPEL+gFcnynAvznNRnEvMU7i7u0PSjFXlGO4SOlaIUvkykTlS2N++M9B/coxYT7aPw==",
+      "path": "microsoft.win32.systemevents/9.0.9",
+      "hashPath": "microsoft.win32.systemevents.9.0.9.nupkg.sha512"
+    },
+    "QRCoder/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XmPA81eo+oRxBuyVdswsSkTGTE1d3thfF11Z1PdD7oB56A6HU4G4AAOdySmGRMb/cljwlFTMWUtosGEnwpS6GA==",
+      "path": "qrcoder/1.6.0",
+      "hashPath": "qrcoder.1.6.0.nupkg.sha512"
+    },
+    "SixLabors.ImageSharp/3.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JfPLyigLthuE50yi6tMt7Amrenr/fA31t2CvJyhy/kQmfulIBAqo5T/YFUSRHtuYPXRSaUHygFeh6Qd933EoSw==",
+      "path": "sixlabors.imagesharp/3.1.11",
+      "hashPath": "sixlabors.imagesharp.3.1.11.nupkg.sha512"
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "path": "stylecop.analyzers/1.1.118",
+      "hashPath": "stylecop.analyzers.1.1.118.nupkg.sha512"
+    },
+    "System.Drawing.Common/9.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BS17VFUf4RS9G/JoA6br+79jAjyTj0UaomgXCVNJJn9EWIvmHkn0ZCqAynxwloO00yPIvWgXBF9SBjcM06bl1w==",
+      "path": "system.drawing.common/9.0.9",
+      "hashPath": "system.drawing.common.9.0.9.nupkg.sha512"
+    }
+  }
+}

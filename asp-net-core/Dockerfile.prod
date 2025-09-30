@@ -1,0 +1,20 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0.305-bookworm-slim-amd64 AS builder
+WORKDIR /build
+
+COPY app/*.sln .
+COPY app/QrCode/*.csproj ./QrCode/
+COPY app/QrCode.Tests/*.csproj ./QrCode.Tests/
+RUN dotnet restore
+COPY app .
+
+RUN dotnet publish QrCode/QrCode.csproj -c Release -o /out --no-restore
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0.9-alpine3.22-amd64 AS runtime
+WORKDIR /app
+
+COPY --from=builder /out .
+
+ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_URLS=http://0.0.0.0:8080
+
+CMD ["dotnet", "QrCode.dll"]
