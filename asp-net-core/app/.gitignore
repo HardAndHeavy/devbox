@@ -1,0 +1,15 @@
+# Build folders
+bin
+obj
+
+# Development config
+appsettings.Development.json
+
+# Temp files
+*~
+*.bak
+*.swp
+
+# Logs
+*.log
+logs
