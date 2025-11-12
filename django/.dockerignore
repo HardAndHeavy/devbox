@@ -1,3 +1,4 @@
 site-packages
 __pycache__
+.ruff_cache
 db.sqlite3
